@@ -17,7 +17,10 @@ while i > 0:
 for i in range(1,8):
     print("#"*i)
 
-#Question 4
+for i in range(8):
+    for j in range(8):
+        print("#", end=" ")
+    print()
 
 for i in range(11):
     ans = i*i
@@ -75,7 +78,19 @@ for data in countries_data:
     languages = languages.union(lan)
 print(len(languages))
 
-#Question 3ii
+languages = {}
+
+for country in countries_data:
+    for language in country['languages']:
+        if language in languages:
+            languages[language] += 1
+        else:
+            languages[language] = 1
+
+top_10 = sorted(languages.items(), key=lambda x: x[1], reverse=True)[:10]
+
+print(top_10)
+
 
 population = []
 for data in countries_data:
